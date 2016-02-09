@@ -1,0 +1,482 @@
+.navbar__id__social, .nav__primary, .nav__secondary, .no-pp .nav__dropdown, .pp, .pp .nav__dropdown, .navbar__buttons {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.social__icon, .hamburger, .navbar__buttons li {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.no-pp .nav__dropdown .dropdown__item a, .js-toggle, .no-pp .nav__dropdown .dropdown__item a::after, .js-toggle::after, .navbar, .navbar::before, .navbar__id, .logo__img, .navbar__id__social, .no-pp .nav__dropdown, .no-pp .nav__dropdown::before, .hamburger, .pp, .pp .nav__item__title::after, .pp .nav__dropdown, .pp .nav__dropdown .dropdown__item::before {
+  transition: all 0.2s ease-out;
+}
+
+.no-pp .nav__dropdown .dropdown__item a, .js-toggle {
+  position: relative;
+  font-family: ITC Avant Garde Gothic Std, Arial;
+  font-size: 12px;
+  color: #65aa04;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.no-pp .nav__dropdown .dropdown__item a::after, .js-toggle::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0%;
+  height: 1px;
+  background: #65aa04;
+}
+.no-pp .nav__dropdown .dropdown__item a:hover::after, .js-toggle:hover::after {
+  width: 100%;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  background: #cacaca;
+}
+
+.navbar {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 56px;
+  padding: 0;
+  margin-top: 0;
+  padding-right: 20px;
+}
+.navbar::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background: #65aa04;
+}
+
+.navbar__id.is-compact,
+.nav:hover + .navbar__id {
+  margin-top: 0;
+  height: 56px;
+  top: 0;
+}
+.navbar__id.is-compact::before,
+.nav:hover + .navbar__id::before {
+  width: 100%;
+}
+.navbar__id.is-compact .navbar__id,
+.nav:hover + .navbar__id .navbar__id {
+  top: 0;
+  height: 56px;
+  padding-top: 12px;
+  border-radius: 0;
+  box-shadow: none;
+}
+.navbar__id.is-compact .logo__title,
+.nav:hover + .navbar__id .logo__title {
+  color: #65aa04;
+  margin: 0;
+}
+.navbar__id.is-compact .logo__img, .navbar__id.is-compact .navbar__id__social,
+.nav:hover + .navbar__id .logo__img,
+.nav:hover + .navbar__id .navbar__id__social {
+  max-height: 0;
+  opacity: 0;
+}
+
+.navbar__id {
+  flex: none;
+  order: 1;
+  position: relative;
+  width: 140px;
+  height: 56px;
+  padding: 12px 20px 0 20px;
+  background: #fff;
+}
+
+.logo__img {
+  max-height: 0;
+  overflow: hidden;
+  width: 60px;
+  height: 52px;
+  margin-left: 20px;
+  background: #cacaca;
+}
+
+.logo__title {
+  margin: 0;
+  color: #65aa04;
+  font-family: Sansa Pro;
+  font-size: 18px;
+  text-transform: uppercase;
+  line-height: 18px;
+}
+.logo__title span {
+  font-size: 22.3px;
+}
+
+.navbar__id__social {
+  max-height: 0;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+}
+
+.social__icon {
+  width: 25px;
+  height: 25px;
+  background: #cacaca;
+}
+
+.nav {
+  flex: auto;
+  display: flex;
+  order: 2;
+}
+
+.nav__primary, .nav__secondary {
+  flex: 0 0 auto;
+}
+
+.nav__primary {
+  background: #65aa04;
+  border-radius: 0 3px 3px 0;
+}
+
+.no-pp .nav__item {
+  margin-left: 20px;
+  color: #fff;
+  font: 14px ITC Avant Garde Gothic Std, Arial;
+  text-transform: uppercase;
+  -webkit-font-smoothing: antialiased;
+}
+
+.no-pp .nav__item__title {
+  display: block;
+  position: relative;
+  font-weight: 700;
+  line-height: 60.48px;
+  cursor: pointer;
+}
+.no-pp .nav__item__title::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 5px 5px 5px;
+  border-color: transparent transparent #fff transparent;
+  transform: scale(0);
+  transform-origin: center bottom;
+  transition: transform 0.2s ease-out;
+}
+
+.no-pp .nav__item:hover .nav__item__title::after {
+  transform: scale(1);
+}
+
+.no-pp .nav__dropdown {
+  max-height: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 56px;
+  left: 0;
+  width: 100%;
+}
+.no-pp .nav__dropdown::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+}
+.no-pp .nav__dropdown .container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 100%;
+  padding-left: 20px;
+  padding-bottom: 20px;
+}
+.no-pp .nav__dropdown .dropdown__item {
+  flex: none;
+  padding-top: 20px;
+}
+.no-pp .nav__dropdown .dropdown__item a {
+  z-index: 1;
+  top: 20px;
+  margin-right: 20px;
+  opacity: 0;
+}
+
+.no-pp .nav__item:hover .nav__dropdown {
+  max-height: 500px;
+}
+.no-pp .nav__item:hover .dropdown__item a {
+  opacity: 1;
+  top: 0;
+}
+
+.hamburger {
+  visibility: hidden;
+  position: absolute;
+  margin-top: 13px;
+  margin-left: 20px;
+  border: 2px solid #fff;
+  background-color: transparent;
+  cursor: pointer;
+  transform: scale(0);
+}
+.hamburger.is-visible {
+  position: relative;
+  visibility: visible;
+  transform: scale(1);
+}
+
+.nav__pp {
+  position: relative;
+}
+
+.pp {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 56px;
+  left: 15px;
+  width: 320px;
+  padding: 20px;
+  background: #fff;
+  transform-origin: center top;
+  transform: translateX(-43.6%) scale(0);
+}
+.pp::after {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 5px 5px 5px;
+  border-color: transparent transparent #fff transparent;
+  transform: translateX(-50%) scale(1);
+  transform-origin: center bottom;
+  transition: transform 0.2s ease-out;
+}
+.pp.is-visible {
+  transform: translateX(-43.6%) scale(1);
+}
+
+.pp .nav__item {
+  flex: 1 0 100%;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+.pp .nav__item:not(:last-child) {
+  margin-bottom: 20px;
+}
+.pp .nav__item.is-unfold .nav__item__title::after {
+  transform: translateY(-50%) rotate(135deg);
+}
+.pp .nav__item.is-unfold .nav__dropdown {
+  max-height: 200px;
+  padding-top: 10px;
+}
+
+.pp .nav__item__title {
+  background: #65aa04;
+  padding: 12px 20px 9px 20px;
+  color: #fff;
+  font: 700 13px ITC Avant Garde Gothic Std, Arial;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  -webkit-font-smoothing: antialiased;
+  border-radius: 3px;
+  position: relative;
+}
+.pp .nav__item__title::after {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-top: 2px solid #fff;
+  border-right: 2px solid #fff;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  transform-origin: center;
+}
+
+.pp .nav__dropdown {
+  opacity: 1;
+  flex-direction: column;
+  padding: 0;
+  max-height: 0;
+  overflow: hidden;
+}
+.pp .nav__dropdown .container {
+  padding: 10px 0 10px 20px;
+  position: relative;
+}
+.pp .nav__dropdown .container::before {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 100%;
+  background: #eeeeee;
+  top: 0;
+}
+.pp .nav__dropdown .dropdown__item {
+  position: relative;
+}
+.pp .nav__dropdown .dropdown__item::before {
+  content: '';
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background: #65aa04;
+  border: 4px solid #fff;
+  border-radius: 50%;
+  left: -6px;
+  top: 10px;
+  transform: scale(0);
+}
+.pp .nav__dropdown .dropdown__item a {
+  display: block;
+  text-decoration: none;
+  font: 400 14px Montserrat;
+  color: #999999;
+  line-height: 35px;
+  padding-left: 20px;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+}
+.pp .nav__dropdown .dropdown__item:hover a {
+  color: #555 !important;
+}
+.pp .nav__dropdown .dropdown__item:hover::before {
+  transform: scale(1);
+}
+
+.navbar__buttons {
+  flex: none;
+  order: 3;
+  height: 100%;
+  align-items: center;
+  margin-left: 20px;
+}
+.navbar__buttons li {
+  background: #fff;
+  opacity: 0.5;
+}
+.navbar__buttons li:nth-child(2) {
+  margin: 0 10px;
+}
+
+.js-toggle {
+  position: absolute;
+  position: fixed;
+  margin: 20px;
+  bottom: 0;
+  right: 0;
+  background: #fff;
+  border: 20px solid #fff;
+}
+
+@media screen and (min-width: 640px) {
+  .navbar {
+    padding: 0 50px;
+    margin-top: 30px;
+  }
+
+  .navbar__id {
+    top: -30px;
+    height: 187px;
+  }
+
+  .logo__img {
+    max-height: 52px;
+    overflow: hidden;
+  }
+
+  .logo__title {
+    margin: 15px auto;
+  }
+
+  .navbar__id__social {
+    max-height: 25px;
+    overflow: hidden;
+  }
+
+  .no-pp .nav__dropdown .container {
+    padding-left: 50px;
+  }
+}
+@media screen and (min-width: 850px) {
+  .no-pp .nav__dropdown .container {
+    padding-left: 90px;
+  }
+  .no-pp .nav__dropdown .dropdown__item a {
+    font-size: 14px;
+  }
+}
+@media screen and (min-width: 930px) {
+  .navbar {
+    padding: 0 50px;
+  }
+}
+@media screen and (min-width: 1050px) {
+  .no-pp .nav__dropdown .container {
+    padding-left: 210px;
+  }
+
+  .no-pp .nav__dropdown .container {
+    height: 84px;
+  }
+}
+@media screen and (min-width: 1220px) {
+  .navbar::before {
+    width: 30%;
+  }
+
+  .no-pp .nav__dropdown .dropdown__item a {
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  .nav__primary {
+    padding-right: 20px;
+  }
+
+  .nav__secondary {
+    margin: 0 0 0 auto;
+  }
+  .nav__secondary .nav__dropdown .container {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .nav__secondary .nav__dropdown .container .dropdown__item a::after {
+    right: 0;
+    left: auto;
+  }
+  .nav__secondary .nav__dropdown .container .dropdown__item:last-child {
+    margin-right: 160px;
+  }
+}
