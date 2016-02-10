@@ -31,6 +31,8 @@ $bdr: 3px;
   @extend %transition;
   display: block;
   cursor: pointer;
+  border: 0;
+  outline: 0;
 }
 
 %round-bt {
@@ -250,7 +252,7 @@ body{
    transform: scale(1);
 }
 .no-touch .no-pp .nav__item:hover .nav__item__title {
-  opacity: 0.9;
+  opacity: 0.75;
 }
 
 // DROPDOWN
@@ -508,31 +510,13 @@ body{
   }
 }
 
-.search-bt {
-  @extend %round-bt;
-  @extend %transparent-bt;
-  display: none;
-
-  &:last-child {
-    margin-left: $gutter/2;
-  }
-}
-.navbar.is-search {
-  .nav-bt {
-    display: none;
-  }
-  .search-bt {
-    display: block;
-  }
-}
-
 // SEARCH
 
 .nav__search {
   display: none;
+  align-items: center;
   flex: auto;
   order: 2;
-  position: relative;
   margin-left: $gutter;
 }
 
@@ -545,10 +529,7 @@ $c-placeholder : #fff;
 }
 .nav__search__input {
   @extend %nav-typo;
-  position: absolute;
-  bottom: 0;
-  height: 100%;
-  width: 100%;
+  flex: 1 0 auto;
   border: 0;
   background-color: transparent;
   color: #fff;
@@ -563,21 +544,30 @@ $c-placeholder : #fff;
   &::-webkit-input-placeholder { @include placeholder(); }
 }
 
+.nav__search__submit, .nav__search__close {
+  @extend %round-bt;
+  @extend %transparent-bt;
+}
+.nav__search__close {
+  margin-left: $gutter/2;
+}
+
+
 .navbar.is-search {
   &::before {
     background: $c-highlight;
+  }
+
+  .nav, .navbar__buttons {
+    display: none;
   }
 
   .navbar__id.is-compact .logo__title {
     color: $c-highlight;
   }
 
-  .nav {
-    display: none;
-  }
-
   .nav__search {
-    display: block;
+    display: flex;
   }
 }
 
@@ -597,6 +587,18 @@ $c-placeholder : #fff;
 
 
 // MEDIA QUERIES 
+
+@media screen and (max-width: 420px) {
+  .navbar.is-search .navbar__id {
+    position: absolute;
+    top: -250px;
+  }
+}
+@media screen and (max-width: 640px) {
+  .navbar.is-search .logo__title {
+    color: $c-highlight;
+  }
+}
 
 @media screen and (min-width: 420px) {
   .navbar.is-compact::before {
@@ -709,6 +711,9 @@ $c-placeholder : #fff;
 @media screen and (min-width: 1220px) {
   .navbar::before {
     width: 30%;
+  }
+  .navbar.is-search::before {
+    width: 100%;
   }
 
   .no-pp .nav__dropdown .dropdown__item a {

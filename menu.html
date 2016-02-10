@@ -7,7 +7,7 @@
 	<script type="text/javascript" src="jquery-1.11.2.min.js"></script>
 	<script type="text/javascript" src="menu.js"></script>
 </head>
-<body class="touch">
+<body class="no-touch">
 	<header class="navbar">
 	  	<nav class="nav">
 		    <ul class="nav__primary no-pp">
@@ -91,15 +91,15 @@
 
 	  	<div class="nav__search">
 	  		<input type="text" class="nav__search__input js-search-input" placeholder="Recherche">
+	  		<input type="submit" class="nav__search__submit" value="">
+	     	<button class="nav__search__close js-toggle-search"></button>
 	  	</div>
 	  
-	  	<ul class="navbar__buttons">
-	     	<li class="round-bt nav-bt"></li>
-	     	<li class="round-bt nav-bt js-toggle-search"></li>
-	     	<li class="round-bt nav-bt"></li>
-	     	<li class="round-bt search-bt js-valid-search"></li>
-	     	<li class="round-bt search-bt js-toggle-search"></li>
-	   </ul>
+	  	<div class="navbar__buttons">
+	     	<a href="#" class="round-bt nav-bt"></a>
+	     	<button class="round-bt nav-bt js-toggle-search"></button>
+	     	<a href="#" class="round-bt nav-bt"></a>
+	   </div>
 	</header>
 
 	<a href="#" class="js-toggle">toggle menu</a>
