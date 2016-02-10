@@ -474,7 +474,7 @@ body {
 .navbar.is-search::before {
   background: #eb6c1d;
 }
-.navbar.is-search .logo__title {
+.navbar.is-search .navbar__id.is-compact .logo__title {
   color: #eb6c1d;
 }
 .navbar.is-search .nav {
