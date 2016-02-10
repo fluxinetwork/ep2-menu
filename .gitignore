@@ -38,3 +38,7 @@ node_modules
 
 .sass-cache/
 *.css.map
+
+// JUNK
+
+.DS_Store
