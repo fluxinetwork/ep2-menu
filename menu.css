@@ -7,19 +7,38 @@
   list-style: none;
 }
 
-.social__icon, .hamburger, .navbar__buttons li {
+.no-pp .nav__item__title, .nav__search__input {
+  font-family: ITC Avant Garde Gothic Std, Arial;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 60.48px;
+  text-transform: uppercase;
+  -webkit-font-smoothing: antialiased;
+}
+
+.social__icon, .hamburger, .navbar__buttons .nav-bt, .search-bt {
+  display: block;
+  cursor: pointer;
+}
+
+.social__icon, .hamburger, .navbar__buttons .nav-bt, .search-bt {
   width: 30px;
   height: 30px;
   border-radius: 50%;
 }
 
-.no-pp .nav__dropdown .dropdown__item a, .js-toggle, .no-pp .nav__dropdown .dropdown__item a::after, .js-toggle::after, .navbar, .navbar::before, .navbar__id,
+.hamburger, .search-bt {
+  background-color: transparent;
+  border: 2px solid #fff;
+}
+
+.social__icon, .hamburger, .navbar__buttons .nav-bt, .search-bt, .no-pp .nav__dropdown .dropdown__item a, .js-toggle, .no-pp .nav__dropdown .dropdown__item a::after, .js-toggle::after, .navbar, .navbar::before, .navbar__id,
 .navbar__id.is-compact,
 .no-touch nav:hover + .navbar__id, .logo__img,
 .navbar__id.is-compact .logo__img,
 .no-touch nav:hover + .navbar__id .logo__img, .navbar__id__social,
 .navbar__id.is-compact .navbar__id__social,
-.no-touch nav:hover + .navbar__id .navbar__id__social, .no-pp .nav__dropdown, .no-pp .nav__dropdown::before, .hamburger, .pp, .pp .nav__item__title::after, .pp .nav__dropdown, .pp .nav__dropdown .dropdown__item::before {
+.no-touch nav:hover + .navbar__id .navbar__id__social, .nav__primary, .no-pp .nav__item__title, .no-pp .nav__dropdown, .no-pp .nav__dropdown::before, .pp, .pp .nav__item__title::after, .pp .nav__dropdown, .pp .nav__dropdown .dropdown__item::before {
   transition: all 0.2s ease-out;
 }
 
@@ -87,6 +106,8 @@ body {
   padding: 12px 20px 0 20px;
   background: #fff;
   top: 0;
+  box-shadow: none;
+  border-radius: 0;
 }
 
 .logo__img,
@@ -142,7 +163,6 @@ body {
 }
 
 .nav__primary {
-  background: #65aa04;
   border-radius: 0 3px 3px 0;
 }
 
@@ -159,16 +179,12 @@ body {
 .no-pp .nav__item {
   margin-left: 20px;
   color: #fff;
-  font: 14px ITC Avant Garde Gothic Std, Arial;
-  text-transform: uppercase;
   -webkit-font-smoothing: antialiased;
 }
 
 .no-pp .nav__item__title {
   display: block;
   position: relative;
-  font-weight: 700;
-  line-height: 60.48px;
   cursor: pointer;
 }
 .no-pp .nav__item__title::after {
@@ -189,6 +205,10 @@ body {
 .touch .no-pp .nav__item.is-active .nav__item__title::after,
 .no-touch .no-pp .nav__item:hover .nav__item__title::after {
   transform: scale(1);
+}
+
+.no-touch .no-pp .nav__item:hover .nav__item__title {
+  opacity: 0.9;
 }
 
 .no-pp .nav__dropdown {
@@ -240,8 +260,6 @@ body {
   position: absolute;
   margin-top: 13px;
   margin-left: 20px;
-  border: 2px solid #fff;
-  background-color: transparent;
   cursor: pointer;
   transform: scale(0);
   outline: none;
@@ -386,12 +404,81 @@ body {
   align-items: center;
   margin-left: 20px;
 }
-.navbar__buttons li {
+.navbar__buttons .nav-bt {
   background: #fff;
   opacity: 0.5;
 }
-.navbar__buttons li:nth-child(2) {
+.navbar__buttons .nav-bt:nth-child(2) {
   margin: 0 10px;
+}
+
+.search-bt {
+  display: none;
+}
+.search-bt:last-child {
+  margin-left: 10px;
+}
+
+.navbar.is-search .nav-bt {
+  display: none;
+}
+.navbar.is-search .search-bt {
+  display: block;
+}
+
+.nav__search {
+  display: none;
+  flex: auto;
+  order: 2;
+  position: relative;
+  margin-left: 20px;
+}
+
+.nav__search__input {
+  position: absolute;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  border: 0;
+  background-color: transparent;
+  color: #fff;
+}
+.nav__search__input:focus {
+  outline: 0;
+}
+.nav__search__input:-moz-placeholder {
+  color: #fff;
+  font-weight: 400;
+  line-height: 64.4px;
+  opacity: 0.7;
+}
+.nav__search__input:-ms-input-placeholder {
+  color: #fff;
+  font-weight: 400;
+  line-height: 64.4px;
+  opacity: 0.7;
+}
+.nav__search__input::-moz-placeholder {
+  color: #fff;
+  font-weight: 400;
+  line-height: 64.4px;
+  opacity: 0.7;
+}
+.nav__search__input::-webkit-input-placeholder {
+  color: #fff;
+  font-weight: 400;
+  line-height: 64.4px;
+  opacity: 0.7;
+}
+
+.navbar.is-search::before {
+  background: #eb6c1d;
+}
+.navbar.is-search .nav {
+  display: none;
+}
+.navbar.is-search .nav__search {
+  display: block;
 }
 
 .js-toggle {
@@ -446,6 +533,8 @@ body {
     top: -30px;
     height: 187px;
     padding: 20px 20px 0 20px;
+    border-radius: 0 0 3px 3px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   }
   .navbar__id.is-compact {
     padding-top: 12px;
@@ -512,6 +601,7 @@ body {
 
   .nav__primary {
     padding-right: 20px;
+    background: #65aa04;
   }
 
   .nav__secondary {

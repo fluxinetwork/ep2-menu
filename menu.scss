@@ -4,6 +4,7 @@ $gutter: 20px;
 $navH: 56px;
 $ff: ITC Avant Garde Gothic Std, Arial;
 $c-main: #65aa04;
+$c-highlight: #eb6c1d;
 $bshadow: 0 0 10px rgba(0,0,0,0.2);
 $bdr: 3px;
 
@@ -17,10 +18,32 @@ $bdr: 3px;
   list-style: none;
 }
 
+%nav-typo {
+  font-family: $ff;
+  font-size: 14px;
+  font-weight: 700;  
+  line-height: $navH*1.08;
+  text-transform: uppercase;
+  -webkit-font-smoothing: antialiased;
+}
+
+%bt {
+  @extend %transition;
+  display: block;
+  cursor: pointer;
+}
+
 %round-bt {
+  @extend %bt;
   width: 30px;
   height: 30px;
   border-radius: 50%;
+}
+
+%transparent-bt {
+  @extend %bt;
+  background-color: transparent;
+  border: 2px solid #fff;
 }
 
 %transition {
@@ -117,6 +140,8 @@ body{
   padding: 12px $gutter 0 $gutter;
   background: #fff;
   top: 0;
+  box-shadow: none;
+  border-radius: 0;
 }
 
 .logo__img,
@@ -178,7 +203,7 @@ body{
   flex: 0 0 auto;
 }
 .nav__primary {
-  background: $c-main;
+  @extend %transition;
   border-radius: 0 3px 3px 0;
 }
 .nav__secondary .nav__dropdown .container {
@@ -195,16 +220,14 @@ body{
 .no-pp .nav__item {
   margin-left: $gutter;
   color: #fff;
-  font: 14px $ff;
-  text-transform: uppercase;
   -webkit-font-smoothing: antialiased;
 }
 
 .no-pp .nav__item__title {
+  @extend %nav-typo;
+  @extend %transition;
   display: block;
   position: relative;
-  font-weight: 700;  
-  line-height: $navH*1.08;
   cursor: pointer;
   
   &::after {
@@ -225,6 +248,9 @@ body{
 .touch .no-pp .nav__item.is-active .nav__item__title::after,
 .no-touch .no-pp .nav__item:hover .nav__item__title::after {
    transform: scale(1);
+}
+.no-touch .no-pp .nav__item:hover .nav__item__title {
+  opacity: 0.9;
 }
 
 // DROPDOWN
@@ -286,13 +312,12 @@ body{
 
 .hamburger {
   @extend %transition;
+  @extend %transparent-bt;
   @extend %round-bt;
   visibility: hidden;
   position: absolute;
   margin-top: 13px;
   margin-left: $gutter;
-  border: 2px solid #fff;
-  background-color: transparent;
   cursor: pointer;
   transform: scale(0);
   outline: none;
@@ -466,7 +491,7 @@ body{
   align-items: center;
   margin-left: $gutter;
   
-  li {
+  .nav-bt {
     @extend %round-bt;
     background: #fff;
     opacity: 0.5;
@@ -476,6 +501,76 @@ body{
     }
   }
 }
+
+.search-bt {
+  @extend %round-bt;
+  @extend %transparent-bt;
+  display: none;
+
+  &:last-child {
+    margin-left: $gutter/2;
+  }
+}
+.navbar.is-search {
+  .nav-bt {
+    display: none;
+  }
+  .search-bt {
+    display: block;
+  }
+}
+
+// SEARCH
+
+.nav__search {
+  display: none;
+  flex: auto;
+  order: 2;
+  position: relative;
+  margin-left: $gutter;
+}
+
+$c-placeholder : #fff;
+@mixin placeholder() {
+  color: $c-placeholder;
+  font-weight: 400;
+  line-height: $navH*1.15;
+  opacity: 0.7;
+}
+.nav__search__input {
+  @extend %nav-typo;
+  position: absolute;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  border: 0;
+  background-color: transparent;
+  color: #fff;
+
+  &:focus {
+    outline: 0;
+  }
+  
+  &:-moz-placeholder { @include placeholder(); }
+  &:-ms-input-placeholder { @include placeholder(); }
+  &::-moz-placeholder { @include placeholder(); }
+  &::-webkit-input-placeholder { @include placeholder(); }
+}
+
+.navbar.is-search {
+  &::before {
+    background: $c-highlight;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .nav__search {
+    display: block;
+  }
+}
+
 
 // TOGGLE
 
@@ -534,6 +629,8 @@ body{
     top: -30px;
     height: 187px;
     padding: $gutter $gutter 0 $gutter;
+    border-radius: 0 0 $bdr $bdr;
+    box-shadow: $bshadow;
 
     &.is-compact {
       padding-top: 12px;
@@ -608,6 +705,7 @@ body{
   
   .nav__primary {
     padding-right: $gutter;
+    background: $c-main;
   }
   
   .nav__secondary {

@@ -23,7 +23,7 @@ $(document).ready(function(){
 	// RESIZE
 
 	$(window).on('resize', function() {
-	  monitor_nav();
+	  pp_nav();
 	})
 
 
@@ -34,10 +34,10 @@ $(document).ready(function(){
 	}
 
 
-	// MONITOR NAV
+	// PRIORITY PATTERN NAV
 
 
-	function monitor_nav() {
+	function pp_nav() {
 		windowW = $(window).width();
 		var navW;
 		var remainW;
@@ -82,7 +82,7 @@ $(document).ready(function(){
 			}
 		}
 
-		// Utils
+		// Get data
 
 		function get_data() {
 			var hamburgerW = 0;
@@ -94,6 +94,17 @@ $(document).ready(function(){
 			remainW = windowW - logoW - buttonsW - navbarPd - hamburgerW;
 			availableW = remainW - navW;
 		}
+	}
+
+
+	// SEARCH
+
+	$('.js-toggle-search').on('click', toggleSearch);
+	function toggleSearch() {
+		if (!$('.navbar').hasClass('is-search')) {
+			setTimeout(function() { $('.nav__search__input').focus(); }, 1);
+		}
+		$('.navbar').toggleClass('is-search');
 	}
 
 
