@@ -232,17 +232,22 @@ body {
   align-items: center;
   width: 100%;
   padding-left: 20px;
-  padding-bottom: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 .no-pp .nav__dropdown .dropdown__item {
   flex: none;
-  padding-top: 20px;
 }
 .no-pp .nav__dropdown .dropdown__item a {
+  display: block;
   z-index: 1;
   top: 20px;
   margin-right: 20px;
+  padding: 10px 0;
   opacity: 0;
+}
+.no-pp .nav__dropdown .dropdown__item a::after {
+  bottom: 8px;
 }
 
 .touch .no-pp .nav__item.is-active .nav__dropdown,
@@ -566,13 +571,15 @@ body {
 @media screen and (min-width: 850px) {
   .no-pp .nav__dropdown .container {
     padding-left: 70px;
-    padding-bottom: 30px;
-  }
-  .no-pp .nav__dropdown .dropdown__item {
-    padding-top: 30px;
+    padding-top: 15px;
+    padding-bottom: 15px;
   }
   .no-pp .nav__dropdown .dropdown__item a {
+    padding: 15px 0;
     font-size: 14px;
+  }
+  .no-pp .nav__dropdown .dropdown__item a::after {
+    bottom: 11px;
   }
 }
 @media screen and (min-width: 930px) {
@@ -583,10 +590,14 @@ body {
 @media screen and (min-width: 1050px) {
   .no-pp .nav__dropdown .container {
     padding-left: 210px;
-    padding-bottom: 40px;
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
-  .no-pp .nav__dropdown .container .dropdown__item {
-    padding-top: 40px;
+  .no-pp .nav__dropdown .container .dropdown__item a {
+    padding: 20px 0;
+  }
+  .no-pp .nav__dropdown .container .dropdown__item a::after {
+    bottom: 16px;
   }
 }
 @media screen and (min-width: 1220px) {
