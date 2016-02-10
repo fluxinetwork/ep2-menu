@@ -234,6 +234,7 @@ body {
   flex-wrap: wrap;
   align-items: center;
   width: 100%;
+  height: 100px;
   padding-left: 20px;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -243,6 +244,7 @@ body {
 }
 .no-pp .nav__dropdown .dropdown__item a {
   display: block;
+  position: relative;
   z-index: 1;
   top: 20px;
   margin-right: 20px;
