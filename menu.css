@@ -41,7 +41,7 @@
 .no-touch nav:hover + .navbar__id .logo__img, .navbar__id__social,
 .navbar__id.is-compact .navbar__id__social,
 .no-touch nav:hover + .navbar__id .navbar__id__social, .nav__primary, .no-pp .nav__item__title, .no-pp .nav__dropdown, .no-pp .nav__dropdown::before, .pp, .pp .nav__item__title::after, .pp .nav__dropdown, .pp .nav__dropdown .dropdown__item::before {
-  transition: all 0.2s ease-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .no-pp .nav__dropdown .dropdown__item a, .js-toggle {
@@ -210,7 +210,7 @@ body {
 }
 
 .no-touch .no-pp .nav__item:hover .nav__item__title {
-  opacity: 0.75;
+  color: #f2fee2;
 }
 
 .no-pp .nav__dropdown {
@@ -254,7 +254,7 @@ body {
 
 .touch .no-pp .nav__item.is-active .nav__dropdown,
 .no-touch .no-pp .nav__item:hover .nav__dropdown {
-  max-height: 500px;
+  max-height: 200px;
 }
 .touch .no-pp .nav__item.is-active .dropdown__item a,
 .no-touch .no-pp .nav__item:hover .dropdown__item a {
@@ -290,7 +290,9 @@ body {
   transform-origin: center bottom;
   transition: transform 0.2s ease-out;
 }
-.hamburger.pp-visible::after {
+
+.hamburger.pp-visible::after,
+.no-touch .nav__pp:hover .hamburger::after {
   transform: translateX(-50%) scale(1);
 }
 
@@ -303,6 +305,7 @@ body {
   width: 100%;
   padding: 20px;
   background: #fff;
+  opacity: 0;
   transform-origin: center top;
   transform: scale(0);
 }
@@ -310,6 +313,7 @@ body {
 .no-touch .nav__pp:hover .pp,
 .pp.is-visible {
   transform: scale(1);
+  opacity: 1;
 }
 
 .pp .nav__item {

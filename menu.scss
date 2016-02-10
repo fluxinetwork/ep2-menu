@@ -49,7 +49,7 @@ $bdr: 3px;
 }
 
 %transition {
-  transition: all 0.2s ease-out;
+  transition: all 0.2s ease-in-out;
 }
 
 %link {
@@ -252,7 +252,7 @@ body{
    transform: scale(1);
 }
 .no-touch .no-pp .nav__item:hover .nav__item__title {
-  opacity: 0.75;
+  color: lighten($c-main, 60%);
 }
 
 // DROPDOWN
@@ -307,7 +307,7 @@ body{
 .touch .no-pp .nav__item.is-active,
 .no-touch .no-pp .nav__item:hover {
   .nav__dropdown {
-    max-height: 500px; 
+    max-height: 200px; 
   }
   
   .dropdown__item a {
@@ -350,12 +350,10 @@ body{
     transform-origin: center bottom;
     transition: transform 0.2s ease-out;
   }
-
-  &.pp-visible {
-    &::after {
-      transform: translateX(-50%) scale(1);
-    }
-  }
+}
+.hamburger.pp-visible::after,
+.no-touch .nav__pp:hover .hamburger::after {
+  transform: translateX(-50%) scale(1);
 }
 
 .pp {
@@ -369,6 +367,7 @@ body{
   width: 100%;
   padding: $gutter;
   background: #fff;
+  opacity: 0;
   transform-origin: center top;
   transform: scale(0);
 }
@@ -376,6 +375,7 @@ body{
 .no-touch .nav__pp:hover .pp,
 .pp.is-visible {
   transform: scale(1);
+  opacity: 1;
 }
 
 .pp .nav__item {
