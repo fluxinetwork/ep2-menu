@@ -48,9 +48,10 @@ $(document).ready(function(){
 		// Hamburger
 
 		if (activeItems < nbNavItems) {
-		  $('.hamburger').addClass('is-visible')
+		  $('.hamburger').addClass('is-visible');
 		} else {
-		  $('.hamburger').removeClass('is-visible')
+		  $('.hamburger').removeClass('is-visible pp-visible');
+		  $('.pp').removeClass('is-visible');
 		}
 
 		// Move items
@@ -62,19 +63,19 @@ $(document).ready(function(){
 			  var $item =  $('.nav__primary').children().last();
 			}
 			ppItemsW.push($item.outerWidth());
-			$item.prependTo('.pp').addClass('js-init').removeClass('is-active');
-			activePPitem();
+			$item.removeClass('is-active').prependTo('.pp').on('click', clicPPnavItem).off('click', clicNavItem);
+			clicPPnavItem();
 			activeItems--;
 		} else {
 			if (ppItemsW.length>0) {
 				if (availableW > ppItemsW[ppItemsW.length-1]) {
-					var $item = $('.pp .nav__item').first().removeClass('is-unfold');
+					var $item = $('.pp .nav__item').first();
 					if ($('.nav__primary .nav__item').length == nbNavItemsNav1) {
-					var $item = 
 					  $item.first().appendTo('.nav__secondary');
 					} else {
 					  $item.first().appendTo('.nav__primary');
 					}
+					$item.removeClass('is-unfold').off('click', clicPPnavItem).on('click', clicNavItem);
 					ppItemsW.pop();
 					activeItems++;
 				}
@@ -93,17 +94,10 @@ $(document).ready(function(){
 			remainW = windowW - logoW - buttonsW - navbarPd - hamburgerW;
 			availableW = remainW - navW;
 		}
-
-		function activePPitem() {
-		  $('.pp .js-init').on('click', function() {
-		    $('.pp .is-unfold').toggleClass('is-unfold');
-		    $(this).toggleClass('is-unfold');
-		  }).removeClass('js-init');
-		}
 	}
 
 
-	// TOGGLE
+	// CLIC EVENTS FOR TOUCH DEVICES
 
 	if ($('body').hasClass('touch')) {
 		$('.js-toggle-pp').click(function(){
@@ -115,26 +109,40 @@ $(document).ready(function(){
 			$('.pp').toggleClass('is-visible');
 		})
 
-		$('.no-pp .nav__item').click(function(){
-			if ($(this).hasClass('is-active')) {
-				clearMenu();
-			} else {
-				clearMenu();
-				$(this).toggleClass('is-active');
-				$('.pp').removeClass('is-visible');
-				$('.js-toggle-pp').removeClass('pp-visible')
-				$('.navbar__id').addClass('is-compact');
-			}
-		})
+		$('.no-pp .nav__item').on('click', clicNavItem);
+	}
 
-		function clearMenu() {
-			$('.no-pp .is-active').removeClass('is-active');
-			$('.pp .is-unfold').removeClass('is-unfold');
-			if (!$('.navbar').hasClass('stick-top')) {
-				$('.navbar__id').removeClass('is-compact');
-			}
+	function clicNavItem(e) {
+		console.log('clic nav');
+		if (!$(e.target).hasClass('nav__item__title')) {
+			return;
+		}
+		if ($(this).hasClass('is-active')) {
+			clearMenu();
+		} else {
+			clearMenu();
+			$(this).toggleClass('is-active');
+			$('.pp').removeClass('is-visible');
+			$('.js-toggle-pp').removeClass('pp-visible')
+			$('.navbar__id').addClass('is-compact');
 		}
 	}
+
+	function clicPPnavItem() {
+		console.log('clic pp');
+	    $('.pp .is-unfold').removeClass('is-unfold');
+	    $(this).addClass('is-unfold');
+	}
+
+	function clearMenu() {
+		$('.no-pp .is-active').removeClass('is-active');
+		$('.pp .is-unfold').removeClass('is-unfold');
+		if (!$('.navbar').hasClass('stick-top')) {
+			$('.navbar__id').removeClass('is-compact');
+		}
+	}
+
+	// SIMULATION WAYPOINT
 
 	$('.js-toggle').click(function(e){
 	  $('.navbar').toggleClass('stick-top');

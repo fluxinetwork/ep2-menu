@@ -116,8 +116,6 @@ body{
   height: $navH;
   padding: 12px $gutter 0 $gutter;
   background: #fff;
-}
-.no-touch nav:hover + .navbar__id {
   top: 0;
 }
 
@@ -539,7 +537,7 @@ body{
 
     &.is-compact {
       padding-top: 12px;
-      margin-top: 30px;
+      top: 0;
     }
   }
   .logo__img {

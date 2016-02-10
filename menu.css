@@ -86,9 +86,6 @@ body {
   height: 56px;
   padding: 12px 20px 0 20px;
   background: #fff;
-}
-
-.no-touch nav:hover + .navbar__id {
   top: 0;
 }
 
@@ -452,7 +449,7 @@ body {
   }
   .navbar__id.is-compact {
     padding-top: 12px;
-    margin-top: 30px;
+    top: 0;
   }
 
   .logo__img {
